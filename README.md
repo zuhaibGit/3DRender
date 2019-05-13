@@ -10,7 +10,8 @@ Parameters can be used to control the size, position, colour, and render type (f
 ## 1.1 - CUBE CLASS
 	
 The definition of the cube constructor is:
-~~~Cube::Cube(float x, float y, float z, float s, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])~~~
+
+	Cube::Cube(float x, float y, float z, float s, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])
 
 c is the color of the cube. pix is a pointer to the pixels array.
 
@@ -25,7 +26,8 @@ To draw a cube, use its drawCube(bool xray) method. If xray is true, then a skel
 ## 1.2 - PYRAMID CLASS
 	
 The definition of the Pyramid constructor is
-~~~Pyramid::Pyramid(float nx, float ny, float nz, float h, float r, int num_sides, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])~~~
+
+	Pyramid::Pyramid(float nx, float ny, float nz, float h, float r, int num_sides, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])
 
 c and pix represent the colour and pointer to pixels.
 
@@ -40,7 +42,8 @@ The Pyramid is rendered the same way as the cube. It too has an xray option to v
 ## 1.3 - TRIANGLE CLASS
 	
 The constructor for the Triangle class is
-~~~Triangle::Triangle(Point *p1, Point *p2, Point *p3, uint32_t col, uint32_t(*pix)[SCREEN_WIDTH])~~~
+
+	Triangle::Triangle(Point *p1, Point *p2, Point *p3, uint32_t col, uint32_t(*pix)[SCREEN_WIDTH])
 
 c and pix are the colour and pointer to pixels.
 
@@ -54,7 +57,8 @@ If these conditions hold, then the triangle is rendered (either as a skeleton, o
 ## 1.4 - POINT CLASS
 
 The constructor for this class is
-~~~Point::Point(float px, float py, float pz)~~~
+
+	Point::Point(float px, float py, float pz)
 
 It'll take the x, y points in canvas coordinates, and the z coordiante corresponds to the world-space coordinate that the point is being projected from. This allows easy conversion between the point on the canvas and the real-world coordinate of that point. Throughout the program, the point, before being instantiated is transformed from world-space coordinates, into canvas coordinates. The constructor takes points that are assumed to be w.r.t to the top-left corner of the canvas, and shifts them so that they are w.r.t to the center of the screen.
 
