@@ -5,12 +5,12 @@ The program allows the user to generate two types of 3d objects:
 * Variable-sided Pyramid
 Parameters can be used to control the size, position, colour, and render type (filled or skeleton) of each shape.
 
-	1 - CLASSES
+# 1 - CLASSES
 
-	1.1 - CUBE CLASS
+## 1.1 - CUBE CLASS
 	
 The definition of the cube constructor is:
-Cube::Cube(float x, float y, float z, float s, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])
+~~~Cube::Cube(float x, float y, float z, float s, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])~~~
 
 c is the color of the cube. pix is a pointer to the pixels array.
 
@@ -22,10 +22,10 @@ The rest of the points in the cube are then computed and stored in 8 Point objec
 
 To draw a cube, use its drawCube(bool xray) method. If xray is true, then a skeleton of the cube will be drawn showing the triangles that make up the cube. Useful if the colored cube is hard to make sense of due to lighting problems. If xray is false, then the cube will be drawn with the colour c. Whether xray is true or false, the rendering, in both cases, is done by iteratin through the array of trinagles, and calling draw method of each one. If x ray is true, it'll draw the 3 lines for each triangle. If it's false, it'll call the fillTriangle() method for each triangle. The function uses scanline algorithm.
  
-	1.2 - PYRAMID CLASS
+## 1.2 - PYRAMID CLASS
 	
 The definition of the Pyramid constructor is
-Pyramid::Pyramid(float nx, float ny, float nz, float h, float r, int num_sides, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])
+~~~Pyramid::Pyramid(float nx, float ny, float nz, float h, float r, int num_sides, uint32_t c, uint32_t(*pix)[SCREEN_WIDTH])~~~
 
 c and pix represent the colour and pointer to pixels.
 
@@ -37,10 +37,10 @@ num_sides represents the number of sides that you want the base to have. Using t
 
 The Pyramid is rendered the same way as the cube. It too has an xray option to view the skeleton
 
-	1.3 - TRIANGLE CLASS
+## 1.3 - TRIANGLE CLASS
 	
 The constructor for the Triangle class is
-Triangle::Triangle(Point *p1, Point *p2, Point *p3, uint32_t col, uint32_t(*pix)[SCREEN_WIDTH])
+~~~Triangle::Triangle(Point *p1, Point *p2, Point *p3, uint32_t col, uint32_t(*pix)[SCREEN_WIDTH])~~~
 
 c and pix are the colour and pointer to pixels.
 
@@ -51,16 +51,16 @@ This class is where most of the computation happens. Before rendering, the trian
 * it's not a backface.
 If these conditions hold, then the triangle is rendered (either as a skeleton, or a filled object).
 
-	1.4 - POINT CLASS
+## 1.4 - POINT CLASS
 
 The constructor for this class is
-Point::Point(float px, float py, float pz)
+~~~Point::Point(float px, float py, float pz)~~~
 
 It'll take the x, y points in canvas coordinates, and the z coordiante corresponds to the world-space coordinate that the point is being projected from. This allows easy conversion between the point on the canvas and the real-world coordinate of that point. Throughout the program, the point, before being instantiated is transformed from world-space coordinates, into canvas coordinates. The constructor takes points that are assumed to be w.r.t to the top-left corner of the canvas, and shifts them so that they are w.r.t to the center of the screen.
 
 Note the two versions of x and y coordinate-returning functions. getX() returns the canvas coordinate w.r.t to the top left of the screen, while getXW() returns the x coordinate w.r.t the center of the screen.
 
-	2 - ALGORITHMS
+## 2 - ALGORITHMS
 	
 Brasenham's algorithm was used in line drawing.
 
